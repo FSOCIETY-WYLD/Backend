@@ -356,7 +356,7 @@ else
 			},
 
 		},
-		SelectedTheme = "Default",
+		SelectedTheme = "Blue",
 		Folder = nil,
 		SaveCfg = false
 	}
