@@ -7,43 +7,9 @@ local success, result = pcall(function()
 end)
 
 if success then
-    themess = textInhalt
+    temesdef = textInhalt
 else
     print("Fehler: Die Datei wurde nicht gefunden oder konnte nicht gelesen werden.")
-	themess = "Default"
-end
-
-
-
-if themess == "Default" then
-	temesdef = "Default"
-elseif themess == "Candy" then
-	temesdef = "Candy"
-elseif themess == "Blue" then
-	temesdef = "Blue"
-elseif themess == "Green" then
-	temesdef = "Green"
-elseif themess == "Lean" then
-	temesdef = "Lean"
-elseif themess == "Grey" then
-	temesdef = "Grey"
-elseif themess == "Red" then
-	temesdef = "Red"
-elseif themess == "Leany" then
-	temesdef = "Leany"
-elseif themess == "Orange" then
-	temesdef = "Orange"
-elseif themess == "NiceBlue" then
-	temesdef = "NiceBlue"
-elseif themess == "VeryBlack" then
-	temesdef = "VeryBlack"
-elseif themess == "Galaxy" then
-	temesdef = "Galaxy"    
-elseif themess == "Plant" then
-	temesdef = "Plant"    
-elseif themess == "GreenBlue" then
-	temesdef = "GreenBlue"    
-else
 	temesdef = "Default"
 end
 
@@ -103,22 +69,22 @@ local OrionLib = {
 			Text = Color3.fromRGB(255,255,255),
 			TextDark = Color3.fromRGB(255,255,255)
 		},
-        Plant = {
-            Main = Color3.fromRGB(0, 128, 64), 
-            Second = Color3.fromRGB(0, 200, 100), 
-            Stroke = Color3.fromRGB(128, 64, 0),
-            Divider = Color3.fromRGB(128, 64, 0),
-            Text = Color3.fromRGB(0, 64, 32),
-            TextDark = Color3.fromRGB(255, 255, 255) 
-        },
-        Galaxy = {
-            Main = Color3.fromRGB(0, 0, 10), 
-            Second = Color3.fromRGB(0, 0, 25),
-            Stroke = Color3.fromRGB(30, 0, 60),
-            Divider = Color3.fromRGB(30, 0, 60), 
-            Text = Color3.fromRGB(200, 100, 255), 
-            TextDark = Color3.fromRGB(200, 100, 255)
-        },
+		Plant = {
+			Main = Color3.fromRGB(0, 128, 64), 
+			Second = Color3.fromRGB(0, 200, 100), 
+			Stroke = Color3.fromRGB(128, 64, 0),
+			Divider = Color3.fromRGB(128, 64, 0),
+			Text = Color3.fromRGB(0, 64, 32),
+			TextDark = Color3.fromRGB(255, 255, 255) 
+		},
+		Galaxy = {
+			Main = Color3.fromRGB(0, 0, 10), 
+			Second = Color3.fromRGB(0, 0, 25),
+			Stroke = Color3.fromRGB(30, 0, 60),
+			Divider = Color3.fromRGB(30, 0, 60), 
+			Text = Color3.fromRGB(200, 100, 255), 
+			TextDark = Color3.fromRGB(200, 100, 255)
+		},
 		Green = {
 			Main = Color3.fromRGB(24, 48, 20),
 			Second = Color3.fromRGB(51, 99, 43),
