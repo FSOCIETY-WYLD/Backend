@@ -1,3 +1,30 @@
+
+local themedef = "Default"
+local dateiPfad = "TwwLean/Theme.txt"
+local textInhalt, fehlermeldung
+
+local success, result = pcall(function()
+    textInhalt, fehlermeldung = readfile(dateiPfad)
+end)
+
+if success then
+    	temesdef = textInhalt
+else
+    	print("Fehler: Die Datei wurde nicht gefunden oder konnte nicht gelesen werden.")
+	temesdef = "Default"
+end
+
+
+
+local UserInputService = game:GetService("UserInputService")
+local TweenService = game:GetService("TweenService")
+local RunService = game:GetService("RunService")
+local LocalPlayer = game:GetService("Players").LocalPlayer
+local Mouse = LocalPlayer:GetMouse()
+local HttpService = game:GetService("HttpService")
+
+
+
 local OrionLib = {
 	Elements = {},
 	ThemeObjects = {},
@@ -111,268 +138,10 @@ local OrionLib = {
 		},
 
 	},
-	SelectedTheme = "Default",
+	SelectedTheme = temesdef,
 	Folder = nil,
 	SaveCfg = false
 }
-
-local themedef = "Default"
-local dateiPfad = "TwwLean/Theme.txt"
-local textInhalt, fehlermeldung
-
-local success, result = pcall(function()
-    textInhalt, fehlermeldung = readfile(dateiPfad)
-end)
-
-if success then
-	local OrionLib = {
-		Elements = {},
-		ThemeObjects = {},
-		Connections = {},
-		Flags = {},
-		Themes = {
-			Default = {
-				Main = Color3.fromRGB(25, 25, 25),
-				Second = Color3.fromRGB(32, 32, 32),
-				Stroke = Color3.fromRGB(60, 60, 60),
-				Divider = Color3.fromRGB(60, 60, 60),
-				Text = Color3.fromRGB(240, 240, 240),
-				TextDark = Color3.fromRGB(150, 150, 150)
-			},
-			Candy = {
-				Main = Color3.fromRGB(3, 37, 126),
-				Second = Color3.fromRGB(231, 84, 128),
-				Stroke = Color3.fromRGB(0, 255, 0),
-				Divider = Color3.fromRGB(255, 255, 0),
-				Text = Color3.fromRGB(240, 240, 240),
-				TextDark = Color3.fromRGB(150, 150, 150)
-			},
-
-			Blue = {
-				Main = Color3.fromRGB(12, 16, 59),
-				Second = Color3.fromRGB(14, 19, 71),
-				Stroke = Color3.fromRGB(50, 60, 168),
-				Divider = Color3.fromRGB(47, 51, 97),
-				Text = Color3.fromRGB(255, 255, 255),
-				TextDark = Color3.fromRGB(68, 71, 94)
-			},
-			Lean= {
-				Main = Color3.fromRGB(88, 8, 138),
-				Second = Color3.fromRGB(105, 8, 166),
-				Stroke = Color3.fromRGB(141, 41, 204),
-				Divider = Color3.fromRGB(94, 7, 148),
-				Text = Color3.fromRGB(255, 255, 255),
-				TextDark = Color3.fromRGB(71, 7, 110)
-			},
-			VeryBlack = {
-				Main = Color3.fromRGB(0,0,0),
-				Second = Color3.fromRGB(0,0,0),
-				Stroke = Color3.fromRGB(60, 60, 60),
-				Divider = Color3.fromRGB(60, 60, 60),
-				Text = Color3.fromRGB(255,255,255),
-				TextDark = Color3.fromRGB(255,255,255)
-			},
-			Plant = {
-				Main = Color3.fromRGB(0, 128, 64), 
-				Second = Color3.fromRGB(0, 200, 100), 
-				Stroke = Color3.fromRGB(128, 64, 0),
-				Divider = Color3.fromRGB(128, 64, 0),
-				Text = Color3.fromRGB(0, 64, 32),
-				TextDark = Color3.fromRGB(255, 255, 255) 
-			},
-			Galaxy = {
-				Main = Color3.fromRGB(0, 0, 10), 
-				Second = Color3.fromRGB(0, 0, 25),
-				Stroke = Color3.fromRGB(30, 0, 60),
-				Divider = Color3.fromRGB(30, 0, 60), 
-				Text = Color3.fromRGB(200, 100, 255), 
-				TextDark = Color3.fromRGB(200, 100, 255)
-			},
-			Green = {
-				Main = Color3.fromRGB(24, 48, 20),
-				Second = Color3.fromRGB(51, 99, 43),
-				Stroke = Color3.fromRGB(84, 156, 72),
-				Divider = Color3.fromRGB(71, 112, 64),
-				Text = Color3.fromRGB(255, 255, 255),
-				TextDark = Color3.fromRGB(56, 66, 54)
-			},
-			Grey = {
-				Main = Color3.fromRGB(186, 186, 186),
-				Second = Color3.fromRGB(163, 163, 163),
-				Stroke = Color3.fromRGB(145, 142, 142),
-				Divider = Color3.fromRGB(153, 150, 150),
-				Text = Color3.fromRGB(0, 0, 0),
-				TextDark = Color3.fromRGB(94, 93, 93)
-			},
-			Orange = {
-				Main = Color3.fromRGB(255, 127, 0),
-				Second = Color3.fromRGB(168, 96, 2),
-				Stroke = Color3.fromRGB(255, 191, 0),
-				Divider = Color3.fromRGB(255,218,185),
-				Text = Color3.fromRGB(240, 240, 240),
-				TextDark = Color3.fromRGB(240, 240, 240)
-			},
-			Red = {
-				Main = Color3.fromRGB(110, 2, 2),
-				Second = Color3.fromRGB(128, 9, 9),
-				Stroke = Color3.fromRGB(107, 15, 15),
-				Divider = Color3.fromRGB(125, 25, 25),
-				Text = Color3.fromRGB(255, 255, 255),
-				TextDark = Color3.fromRGB(156, 106, 106)
-			},
-			NiceBlue = {
-				Main = Color3.fromRGB(44, 62, 82),
-				Second = Color3.fromRGB(57, 81, 105),
-				Stroke = Color3.fromRGB(69, 98, 128),
-				Divider = Color3.fromRGB(69, 98, 128),
-				Text = Color3.fromRGB(240, 240, 240),
-				TextDark = Color3.fromRGB(150, 150, 150)
-			},
-			Leany = {
-				Main = Color3.fromRGB(158, 55, 158),
-				Second = Color3.fromRGB(53, 0, 101),
-				Stroke = Color3.fromRGB(71, 37, 126),
-				Divider = Color3.fromRGB(71, 37, 126),
-				Text = Color3.fromRGB(255, 255, 255),
-				TextDark = Color3.fromRGB(150, 150,150)
-			},
-
-		},
-		SelectedTheme = textInhalt,
-		Folder = nil,
-		SaveCfg = false
-	}
-else	
-	local OrionLib = {
-		Elements = {},
-		ThemeObjects = {},
-		Connections = {},
-		Flags = {},
-		Themes = {
-			Default = {
-				Main = Color3.fromRGB(25, 25, 25),
-				Second = Color3.fromRGB(32, 32, 32),
-				Stroke = Color3.fromRGB(60, 60, 60),
-				Divider = Color3.fromRGB(60, 60, 60),
-				Text = Color3.fromRGB(240, 240, 240),
-				TextDark = Color3.fromRGB(150, 150, 150)
-			},
-			Candy = {
-				Main = Color3.fromRGB(3, 37, 126),
-				Second = Color3.fromRGB(231, 84, 128),
-				Stroke = Color3.fromRGB(0, 255, 0),
-				Divider = Color3.fromRGB(255, 255, 0),
-				Text = Color3.fromRGB(240, 240, 240),
-				TextDark = Color3.fromRGB(150, 150, 150)
-			},
-
-			Blue = {
-				Main = Color3.fromRGB(12, 16, 59),
-				Second = Color3.fromRGB(14, 19, 71),
-				Stroke = Color3.fromRGB(50, 60, 168),
-				Divider = Color3.fromRGB(47, 51, 97),
-				Text = Color3.fromRGB(255, 255, 255),
-				TextDark = Color3.fromRGB(68, 71, 94)
-			},
-			Lean= {
-				Main = Color3.fromRGB(88, 8, 138),
-				Second = Color3.fromRGB(105, 8, 166),
-				Stroke = Color3.fromRGB(141, 41, 204),
-				Divider = Color3.fromRGB(94, 7, 148),
-				Text = Color3.fromRGB(255, 255, 255),
-				TextDark = Color3.fromRGB(71, 7, 110)
-			},
-			VeryBlack = {
-				Main = Color3.fromRGB(0,0,0),
-				Second = Color3.fromRGB(0,0,0),
-				Stroke = Color3.fromRGB(60, 60, 60),
-				Divider = Color3.fromRGB(60, 60, 60),
-				Text = Color3.fromRGB(255,255,255),
-				TextDark = Color3.fromRGB(255,255,255)
-			},
-			Plant = {
-				Main = Color3.fromRGB(0, 128, 64), 
-				Second = Color3.fromRGB(0, 200, 100), 
-				Stroke = Color3.fromRGB(128, 64, 0),
-				Divider = Color3.fromRGB(128, 64, 0),
-				Text = Color3.fromRGB(0, 64, 32),
-				TextDark = Color3.fromRGB(255, 255, 255) 
-			},
-			Galaxy = {
-				Main = Color3.fromRGB(0, 0, 10), 
-				Second = Color3.fromRGB(0, 0, 25),
-				Stroke = Color3.fromRGB(30, 0, 60),
-				Divider = Color3.fromRGB(30, 0, 60), 
-				Text = Color3.fromRGB(200, 100, 255), 
-				TextDark = Color3.fromRGB(200, 100, 255)
-			},
-			Green = {
-				Main = Color3.fromRGB(24, 48, 20),
-				Second = Color3.fromRGB(51, 99, 43),
-				Stroke = Color3.fromRGB(84, 156, 72),
-				Divider = Color3.fromRGB(71, 112, 64),
-				Text = Color3.fromRGB(255, 255, 255),
-				TextDark = Color3.fromRGB(56, 66, 54)
-			},
-			Grey = {
-				Main = Color3.fromRGB(186, 186, 186),
-				Second = Color3.fromRGB(163, 163, 163),
-				Stroke = Color3.fromRGB(145, 142, 142),
-				Divider = Color3.fromRGB(153, 150, 150),
-				Text = Color3.fromRGB(0, 0, 0),
-				TextDark = Color3.fromRGB(94, 93, 93)
-			},
-			Orange = {
-				Main = Color3.fromRGB(255, 127, 0),
-				Second = Color3.fromRGB(168, 96, 2),
-				Stroke = Color3.fromRGB(255, 191, 0),
-				Divider = Color3.fromRGB(255,218,185),
-				Text = Color3.fromRGB(240, 240, 240),
-				TextDark = Color3.fromRGB(240, 240, 240)
-			},
-			Red = {
-				Main = Color3.fromRGB(110, 2, 2),
-				Second = Color3.fromRGB(128, 9, 9),
-				Stroke = Color3.fromRGB(107, 15, 15),
-				Divider = Color3.fromRGB(125, 25, 25),
-				Text = Color3.fromRGB(255, 255, 255),
-				TextDark = Color3.fromRGB(156, 106, 106)
-			},
-			NiceBlue = {
-				Main = Color3.fromRGB(44, 62, 82),
-				Second = Color3.fromRGB(57, 81, 105),
-				Stroke = Color3.fromRGB(69, 98, 128),
-				Divider = Color3.fromRGB(69, 98, 128),
-				Text = Color3.fromRGB(240, 240, 240),
-				TextDark = Color3.fromRGB(150, 150, 150)
-			},
-			Leany = {
-				Main = Color3.fromRGB(158, 55, 158),
-				Second = Color3.fromRGB(53, 0, 101),
-				Stroke = Color3.fromRGB(71, 37, 126),
-				Divider = Color3.fromRGB(71, 37, 126),
-				Text = Color3.fromRGB(255, 255, 255),
-				TextDark = Color3.fromRGB(150, 150,150)
-			},
-
-		},
-		SelectedTheme = "Blue",
-		Folder = nil,
-		SaveCfg = false
-	}
-end
-
-
-
-local UserInputService = game:GetService("UserInputService")
-local TweenService = game:GetService("TweenService")
-local RunService = game:GetService("RunService")
-local LocalPlayer = game:GetService("Players").LocalPlayer
-local Mouse = LocalPlayer:GetMouse()
-local HttpService = game:GetService("HttpService")
-
-
-
 
 --Feather Icons https://github.com/evoincorp/lucideblox/tree/master/src/modules/util - Created by 7kayoh
 local Icons = {}
