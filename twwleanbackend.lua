@@ -1,3 +1,5 @@
+
+--[[
 local themedef = "Default"
 local dateiPfad = "TwwLean/Theme.txt"
 local textInhalt, fehlermeldung
@@ -12,7 +14,7 @@ else
     print("Fehler: Die Datei wurde nicht gefunden oder konnte nicht gelesen werden.")
 	temesdef = "Default"
 end
-
+]]
 
 
 local UserInputService = game:GetService("UserInputService")
@@ -135,7 +137,7 @@ local OrionLib = {
 		},
 
 	},
-	SelectedTheme = temesdef,
+	SelectedTheme = "Default",
 	Folder = nil,
 	SaveCfg = false
 }
