@@ -15,7 +15,7 @@ else
 	temesdef = "Default"
 end
 ]]
-
+print("backend Loaded")
 
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
