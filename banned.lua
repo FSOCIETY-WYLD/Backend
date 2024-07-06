@@ -1,4 +1,6 @@
-local bannedHWIDs = {
-    ["HWID1"] = true,  -- Replace HWID1 with actual banned HWID
-    ["HWID2"] = true   -- Replace HWID2 with actual banned HWID, etc.
+return {
+    ["HWID1"] = true,
+    ["HWID2"] = true,
+    ["HWID3"] = true,
+    -- Add more HWIDs as needed
 }
