@@ -1,4 +1,4 @@
-local coordinatesList = {
+_G.coordinatesList = {
   {position = Vector3.new(659.269348, 39.741390, -790.251831), action = "walk"},
   {position = Vector3.new(653.385742, 39.739655, -798.371460), action = "walk"},
   {position = Vector3.new(650.892883, 39.741402, -804.963684), action = "walk"},
